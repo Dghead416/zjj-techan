@@ -5,44 +5,35 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 <title>山上小摊 · 茶具与木雕</title>
 <style>
-  :root{
-    --bg:#f7f4ee; --card:#fff; --ink:#25231f; --sub:#78736b;
-    --line:#e7e1d6; --acc:#9a5b32; --acc2:#3f6b63;
-  }
+  :root{--bg:#f7f4ee;--card:#fff;--ink:#25231f;--sub:#78736b;--line:#e7e1d6;--acc:#9a5b32;--acc2:#3f6b63}
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html{background:#eae5db}
-  body{
-    margin:0 auto;max-width:600px;background:var(--bg);color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",system-ui,sans-serif;
-    box-shadow:0 0 70px rgba(0,0,0,.09);min-height:100vh;padding-bottom:36px;
-  }
+  body{margin:0 auto;max-width:600px;background:var(--bg);color:var(--ink);
+       font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+       box-shadow:0 0 70px rgba(0,0,0,.09);min-height:100vh;padding-bottom:36px}
   header{padding:26px 22px 20px;border-bottom:1px solid var(--line)}
   .kick{font-size:11.5px;letter-spacing:.24em;color:var(--acc);font-weight:700}
   h1{margin:9px 0 0;font-size:26px;line-height:1.3}
   .sub{margin:9px 0 0;color:var(--sub);font-size:13.5px;line-height:1.65}
   .langs{display:flex;gap:7px;margin-top:16px;flex-wrap:wrap}
-  .langs button{
-    border:1px solid var(--line);background:#fff;color:var(--sub);
-    padding:7px 13px;border-radius:999px;font-size:12.5px;font-weight:600;cursor:pointer;
-  }
+  .langs button{border:1px solid var(--line);background:#fff;color:var(--sub);
+    padding:7px 13px;border-radius:999px;font-size:12.5px;font-weight:600;cursor:pointer}
   .langs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
   .sect{padding:24px 22px 6px}
   .sect h2{margin:0;font-size:20px;letter-spacing:.02em}
   .sect .line{width:44px;height:3px;background:var(--acc);margin:10px 0 14px;border-radius:2px}
-  .story{
-    font-size:14px;line-height:1.85;color:#4a463f;margin:0 0 4px;
-    padding:14px 16px;background:#fffdf9;border-left:3px solid var(--acc2);border-radius:0 10px 10px 0;
-  }
+  .story{font-size:14px;line-height:1.85;color:#4a463f;margin:0 0 4px;padding:14px 16px;
+    background:#fffdf9;border-left:3px solid var(--acc2);border-radius:0 10px 10px 0}
   main{padding:6px 16px}
   .card{background:var(--card);border-radius:16px;overflow:hidden;margin:16px 0;
         box-shadow:0 2px 12px rgba(40,30,20,.06)}
   .card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:#eee}
   .cbody{padding:14px 16px 16px}
   .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-  .nm{font-size:18px;font-weight:700;line-height:1.35}
+  .nm{font-size:17px;font-weight:700;line-height:1.4}
   .pr{font-size:18px;font-weight:800;color:var(--acc);white-space:nowrap}
   .pr small{font-size:11.5px;color:var(--sub);font-weight:600;margin-left:2px}
-  .ds{margin:8px 0 0;font-size:13.5px;color:var(--sub);line-height:1.7}
+  .ds{margin:8px 0 0;font-size:13.5px;color:var(--sub);line-height:1.75}
   .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:11px}
   .tag{font-size:11px;padding:4px 9px;border-radius:6px;background:#f2ece1;color:#8c7554}
   .faq{background:#fff;border-radius:16px;padding:4px 16px;margin:22px 16px 0;
@@ -55,8 +46,7 @@
   footer{text-align:center;color:#a8a29a;font-size:11.5px;padding:24px 22px 0;line-height:1.9}
   @media (prefers-color-scheme: dark){
     :root{--bg:#15140f;--card:#201f19;--ink:#f1ede4;--sub:#9c968b;--line:#2e2c24}
-    html{background:#0f0e0b}
-    body{background:var(--bg)}
+    html{background:#0f0e0b}body{background:var(--bg)}
     .langs button{background:#201f19;color:#9c968b}
     .story{background:#1b1a14;color:#cfc9bc}
     .tag{background:#2b271c;color:#c8a878}
@@ -64,11 +54,10 @@
 </style>
 </head>
 <body>
-
 <header>
   <div class="kick" id="kick">ZHANGJIAJIE · HANDMADE STALL</div>
   <h1 id="h1">山上小摊 · 茶具与木雕</h1>
-  <p class="sub" id="sub">青花小茶具 · 实木手工雕件 · 摆摊价</p>
+  <p class="sub" id="sub">景德镇与汝窑的茶器 · 实木手工雕件</p>
   <div class="langs">
     <button data-lang="zh" class="on">中文</button>
     <button data-lang="en">English</button>
@@ -76,189 +65,88 @@
     <button data-lang="ru">Русский</button>
   </div>
 </header>
-
 <main id="main"></main>
 <div class="faq" id="faq"></div>
 <footer id="foot"></footer>
-
 <script>
+const DATA = {"items": [{"img": "img/tea1.jpg", "n": ["羊脂玉·千里江山 提梁壶", "Mutton-Fat Jade, Rivers & Mountains", "양지옥·천리강산 티팟", "Нефрит, «Реки и горы»"], "d": ["一壶四杯，壶身是千里江山图的青绿山水。羊脂玉瓷，摸上去像玉。带皮质收纳包。", "Pot + 4 cups. The body carries the blue-green of 'A Thousand Li of Rivers and Mountains'. Mutton-fat porcelain, jade-smooth. Leather case included.", "주전자+잔 4개. 몸체에 「천리강산도」의 청록 산수가 담겼습니다. 양지옥 자기, 가죽 케이스 포함.", "Чайник + 4 чашки. На корпусе — сине-зелёные горы «Тысячи ли рек и гор». Фарфор «нефрит», в кожаном чехле."]}, {"img": "img/tea2.jpg", "n": ["羊脂玉白瓷 西施壶", "Mutton-Fat Jade, Xishi Pot", "양지옥 백자 시시 주전자", "Нефрит, чайник Сиши"], "d": ["一壶四杯。西施壶身圆肚短嘴，出水利落。金彩蝴蝶纹，配对杯。", "Pot + 4 cups. The Xishi shape: round body, short spout, pours clean. Gold butterfly pattern with matching cups.", "주전자+잔 4개. 시시 모양의 둥근 몸체와 짧은 주둥이. 금빛 나비 문양.", "Чайник + 4 чашки. Форма Сиши: круглое тело, короткий носик, льёт чисто. Золотые бабочки."]}, {"img": "img/tea3.jpg", "n": ["粉青龙凤呈祥 一壶三杯+茶叶罐", "Celadon Dragon-Phoenix Set", "청자 용봉 세트", "Селадон «Дракон и феникс»"], "d": ["一壶三杯，另带一只茶叶罐。全套里唯一带收藏证书的一款，送人最体面。", "Pot + 3 cups + tea caddy. The only set in our stall with a collector's certificate — the one to give as a gift.", "주전자+잔 3개+차통. 저희 중 유일하게 소장 증서가 포함된 세트입니다.", "Чайник + 3 чашки + чайница. Единственный набор с сертификатом коллекционера."]}, {"img": "img/tea4.jpg", "n": ["米黄汝窑孔雀 提梁壶", "Ru Kiln Peacock, Top Handle", "여요 공작 티팟", "Жу-глазурь «Павлин»"], "d": ["一壶四杯。孔雀纹绕壶身，配深蓝手提箱，箱子结实，托运不怕压。", "Pot + 4 cups. Peacock pattern around the body, in a sturdy navy case that survives checked baggage.", "주전자+잔 4개. 공작 문양, 튼튼한 남색 케이스 포함.", "Чайник + 4 чашки. Узор павлина, прочный тёмно-синий кейс."]}, {"img": "img/tea5.jpg", "n": ["手绘荷花 便携旅行茶具", "Hand-painted Lotus Travel Set", "수작업 연꽃 여행 세트", "Дорожный набор «Лотос»"], "d": ["一壶三杯，手绘金彩，小巧，塞进背包不占地方。", "Pot + 3 cups, hand-painted gold. Small enough to disappear into a backpack.", "주전자+잔 3개, 수작업 금색. 배낭에 쏙 들어갑니다.", "Чайник + 3 чашки, ручная роспись золотом. Помещается в рюкзак."]}, {"img": "img/tea6.jpg", "n": ["汝窑 手绘迎客松 黄汝龙把壶", "Ru Kiln Pine, Dragon Handle", "여요 소나무 용손잡이", "Жу-глазурь «Сосна», ручка-дракон"], "d": ["一壶四杯。壶把是一条龙，手绘迎客松，黄汝釉色偏暖。", "Pot + 4 cups. The handle is a dragon; hand-painted welcoming pine; warm yellow Ru glaze.", "주전자+잔 4개. 용 손잡이, 수작업 소나무 그림, 따뜻한 황여요.", "Чайник + 4 чашки. Ручка-дракон, сосна вручную, тёплая жёлтая глазурь."]}, {"img": "img/tea7.jpg", "n": ["天青汝窑 西施壶 手绘山水", "Sky-Blue Ru Kiln, Landscape", "천청 여요 산수", "Небесно-голубая Жу, пейзаж"], "d": ["一壶四杯。天青釉，手绘山水，是这一批里颜色最静的一款。", "Pot + 4 cups. Sky-blue glaze with a hand-painted landscape — the calmest colour in the batch.", "주전자+잔 4개. 천청 유약에 수작업 산수. 가장 차분한 색입니다.", "Чайник + 4 чашки. Небесно-голубая глазурь, пейзаж вручную."]}, {"img": "img/tea8.jpg", "n": ["汝窑冰裂纹 一壶四杯", "Ru Kiln Ice-Crackle Set", "여요 빙렬 세트", "Жу-глазурь «ледяные трещины»"], "d": ["一壶四杯。釉面开片像冰裂，越用越润，老一辈人最认这个。", "Pot + 4 cups. The crackle glaze looks like river ice and softens with use — the older generation asks for this one.", "주전자+잔 4개. 빙렬 유약, 쓸수록 부드러워집니다.", "Чайник + 4 чашки. Глазурь с кракле, со временем становится мягче."]}, {"img": "img/tea9.jpg", "n": ["粉汝山茶花 龙蛋壶", "Pink Ru Kiln, Camellia", "분여 동백", "Розовая Жу, камелия"], "d": ["一壶三杯。粉汝釉配山茶花，女生买得最多的一款。", "Pot + 3 cups. Pink Ru glaze with camellia — the one women buy most.", "주전자+잔 3개. 분홍 여요에 동백꽃. 여성분들이 가장 많이 찾습니다.", "Чайник + 3 чашки. Розовая глазурь с камелией — берут чаще всего."]}], "price": 160};
 const T = {
-zh:{
-  kick:"ZHANGJIAJIE · HANDMADE STALL",
-  h1:"山上小摊 · 茶具与木雕",
-  sub:"青花小茶具 · 实木手工雕件 · 摆摊价",
-  price:"元",
-  sections:[
-    {title:"茶具 · 白瓷的路子",
-     story:"白瓷这条路，从景德镇和德化一路走过来。胎要薄，釉要润，一千三百度烧下来，才出那种像羊油一样的白——摸上去不冰手，像玉。这套是提梁壶配四只杯，壶身印的是千里江山图的那抹青绿。山里人喝茶不讲究，一把茶叶丢进壶，坐在门口就是一个下午。",
-     items:[
-       {img:"img/tea_set.jpg", nm:"羊脂玉·千里江山 提梁壶", pr:160, unit:"/套（一壶四杯）",
-        ds:"羊脂玉瓷，提梁壶配四只杯，壶身是千里江山图的青绿。带皮质收纳包，送礼体面。",
-        tags:["一壶四杯","带收纳包","可托运"]}]},
-    {title:"木雕 · 一刀一刀修出来的",
-     story:"一整块木头，先看纹路，再决定凿子往哪走。土家人刻房子、刻山、刻背篓，刻的都是天天见的东西。木头会随天气涨缩，打磨时要留三分，用久了才不裂。边角都修过，摸着不扎手。",
-     items:[
-       {img:"img/wood1.jpg", nm:"山形实木摆件", pr:"20–50", unit:"/件",
-        ds:"整料雕的山，木纹自己走，每件花纹都不一样。按大小 20–50，现场挑。",
-        tags:["手工打磨","整块实木","唯一"]},
-       {img:"img/wood2.jpg", nm:"吊脚楼小摆件", pr:"20–50", unit:"/件",
-        ds:"按土家吊脚楼刻的，放书桌或柜台都好看。小件 20，大件 50。",
-        tags:["手工","本地题材","可托运"]}
-     ]}
-  ],
-  faqTitle:"常见问题",
-  faq:[
-    ["茶具能进洗碗机吗？","不建议。温水手洗，别用钢丝球。"],
-    ["木头会不会裂？","正常放着不会。别暴晒、别泡水，干燥季节上点木蜡油。"],
-    ["能带上飞机吗？","可以，托运就行。茶具用衣服裹一下。"],
-    ["能便宜点吗？","买两件以上可以谈，直接问老板。"],
-    ["怎么付款？","现金、微信、支付宝都行。"]
-  ],
-  foot:"从山下来 · 一路带到你家"
-},
-en:{
-  kick:"ZHANGJIAJIE · HANDMADE STALL",
-  h1:"A Small Stall in the Mountains",
-  sub:"Blue-and-white tea sets & hand-carved wood",
-  price:"CNY",
-  sections:[
-    {title:"Tea Sets · The White Porcelain Road",
-     story:"The white porcelain road runs through Jingdezhen and Dehua. Thin body, glassy glaze, fired at 1,300°C — that is how you get the mutton-fat white: cool to look at, warm in the hand, almost like jade. This set is a top-handle pot with four cups, painted with the blue-green of 'A Thousand Li of Rivers and Mountains'. Mountain people keep tea simple: a handful of leaves, a stool by the door, and the afternoon is gone.",
-     items:[
-       {img:"img/tea_set.jpg", nm:"Mutton-Fat Jade Porcelain Tea Set", pr:160, unit:"/set (pot + 4 cups)",
-        ds:"Top-handle pot with four cups, painted with the blue-green of 'A Thousand Li of Rivers and Mountains'. Comes in a leather case — good as a gift.",
-        tags:["Pot + 4 cups","Leather case","Check-in OK"]}]},
-    {title:"Wood Carving · Shaped Cut by Cut",
-     story:"One piece of wood. First read the grain, then decide where the chisel goes. The Tujia carve houses, mountains, back-baskets — the things they see every day. Wood swells and shrinks with the weather, so we leave a little room when sanding; used long enough, it will not split. Every edge is worked, none of them bite.",
-     items:[
-       {img:"img/wood1.jpg", nm:"Carved Mountain, Solid Wood", pr:"20–50", unit:"/piece",
-        ds:"Carved from one block. The grain runs its own way — no two are alike. 20–50 by size.",
-        tags:["Hand-sanded","Solid wood","One of a kind"]},
-       {img:"img/wood2.jpg", nm:"Tujia Stilt House Carving", pr:"20–50", unit:"/piece",
-        ds:"Modelled on a Tujia stilt house. Sits well on a desk or a counter.",
-        tags:["Handmade","Local motif","Check-in OK"]}
-     ]}
-  ],
-  faqTitle:"FAQ",
-  faq:[
-    ["Is the tea set dishwasher safe?","No. Wash by hand in warm water, no steel wool."],
-    ["Will the wood crack?","Not under normal conditions. Keep it out of sun and water; oil it in dry season."],
-    ["Can I take it on a plane?","Yes, in checked baggage. Wrap the tea set in clothes."],
-    ["Any discount?","Two pieces or more — ask the owner."],
-    ["How to pay?","Cash, WeChat Pay or Alipay."]
-  ],
-  foot:"From the mountain · all the way to your home"
-},
-ko:{
-  kick:"장자제 · 수공예 노점",
-  h1:"산 아래 작은 노점",
-  sub:"청화 자기 다기 세트 · 수작업 목조각",
-  price:"위안",
-  sections:[
-    {title:"다기 · 백자의 길",
-     story:"백자의 길은 징더전과 더화를 거쳐 왔습니다. 얇은 몸체, 윤기 있는 유약, 1,300도의 불 — 그래야 양기름 같은 흰색이 나옵니다. 만지면 차갑지 않고 옥 같습니다. 이 세트는 손잡이가 위로 솟은 주전자와 잔 네 개, 「천리강산도」의 청록을 담았습니다.",
-     items:[
-       {img:"img/tea_set.jpg", nm:"양지옥·천리강산 티 세트", pr:160, unit:"/세트 (주전자+잔4)",
-        ds:"양지옥 도자기, 손잡이가 위로 솟은 주전자와 잔 네 개. 가죽 케이스 포함, 선물용으로 좋습니다.",
-        tags:["주전자+잔4","가죽 케이스","위탁 가능"]}]},
-    {title:"목조각 · 한 칼씩 다듬은 것",
-     story:"나무 한 덩어리를 놓고 먼저 결을 봅니다. 그다음 끌이 어디로 갈지 정합니다. 투자족은 집과 산, 바구니를 새깁니다. 매일 보는 것들이니까요. 나무는 날씨에 따라 늘고 줄어서, 사포질할 때 여유를 조금 남겨야 오래 써도 갈라지지 않습니다. 모서리는 모두 다듬어 손에 걸리지 않습니다.",
-     items:[
-       {img:"img/wood1.jpg", nm:"산 모양 원목 조각", pr:"20–50", unit:"/점",
-        ds:"통나무 하나를 깎았습니다. 결이 제각각이라 같은 것이 없습니다.",
-        tags:["수작업 연마","원목","유일"]},
-       {img:"img/wood2.jpg", nm:"투자족 고상가옥 조각", pr:"20–50", unit:"/점",
-        ds:"투자족의 고상가옥을 본떠 새겼습니다. 책상이나 카운터에 잘 어울립니다.",
-        tags:["수공예","현지 소재","위탁 가능"]}
-     ]}
-  ],
-  faqTitle:"자주 묻는 질문",
-  faq:[
-    ["다기를 식기세척기에 넣어도 되나요?","권하지 않습니다. 미지근한 물로 손세척하세요."],
-    ["나무가 갈라지지 않나요?","정상 사용에서는 괜찮습니다. 직사광선과 물을 피하고, 건조한 계절엔 오일을 발라 주세요."],
-    ["비행기에 가져갈 수 있나요?","네, 위탁 수하물로 가능합니다. 다기는 옷으로 감싸세요."],
-    ["깎아 주시나요?","두 점 이상이면 조정 가능합니다."],
-    ["결제는 어떻게 하나요?","현금, 위챗페이, 알리페이 모두 됩니다."]
-  ],
-  foot:"산에서 내려와 · 당신 집까지"
-},
-ru:{
-  kick:"ЧЖАНЦЗЯЦЗЕ · РУЧНАЯ РАБОТА",
-  h1:"Маленькая лавка у гор",
-  sub:"Чайные наборы и резьба по дереву",
-  price:"юаней",
-  sections:[
-    {title:"Чайные наборы · Путь белого фарфора",
-     story:"Путь белого фарфора идёт через Цзиндэчжэнь и Дэхуа. Тонкое тело, стеклянная глазурь, обжиг при 1300°C — так получается «бараний жир»: холодный на вид, тёплый в руке, почти как нефрит. В наборе чайник с верхней ручкой и четыре чашки с сине-зелёным мотивом «Тысячи ли рек и гор».",
-     items:[
-       {img:"img/tea_set.jpg", nm:"Фарфор «Нефрит» — набор с чайником", pr:160, unit:"/набор (чайник + 4 чашки)",
-        ds:"Чайник с верхней ручкой и четыре чашки, мотив «Тысячи ли рек и гор». В кожаном чехле — хороший подарок.",
-        tags:["Чайник + 4","Кожаный чехол","В багаж"]}]},
-    {title:"Резьба · Каждая грань вручную",
-     story:"Один кусок дерева. Сначала смотрим на волокно, потом решаем, куда пойдёт стамеска. Туцзя режут дома, горы, корзины — то, что видят каждый день. Дерево дышит, поэтому при шлифовке оставляем запас: так оно не треснет со временем. Все кромки обработаны — руку не режут.",
-     items:[
-       {img:"img/wood1.jpg", nm:"Горы, резьба по цельному дереву", pr:"20–50", unit:"/шт",
-        ds:"Вырезано из одного бруска. Волокно идёт само — двух одинаковых нет.",
-        tags:["Ручная шлифовка","Цельное дерево","Уникально"]},
-       {img:"img/wood2.jpg", nm:"Дом на сваях (туцзя)", pr:"20–50", unit:"/шт",
-        ds:"По мотивам дома туцзя на сваях. Хорошо смотрится на столе.",
-        tags:["Ручная работа","Местный мотив","В багаж"]}
-     ]}
-  ],
-  faqTitle:"Вопросы",
-  faq:[
-    ["Можно мыть в посудомойке?","Не советуем. Тёплая вода, вручную, без металлической губки."],
-    ["Дерево не треснет?","При нормальных условиях — нет. Берегите от солнца и воды, в сухой сезон смазывайте маслом."],
-    ["Можно взять в самолёт?","Да, в багаж. Набор заверните в одежду."],
-    ["Есть скидка?","От двух штук — спросите хозяина."],
-    ["Как оплатить?","Наличные, WeChat Pay или Alipay."]
-  ],
-  foot:"С гор · до вашего дома"
-}
+zh:{h1:"山上小摊 · 茶具与木雕",sub:"景德镇与汝窑的茶器 · 实木手工雕件",
+ kick:"ZHANGJIAJIE · HANDMADE STALL",price:"元",
+ secTitle:"茶具 · 白瓷与汝窑",
+ story:"白瓷的路子从景德镇和德化走过来，汝窑的路子从宝丰清凉寺走过来。同一个道理：胎要薄，釉要润，窑火烧到一千三百度，颜色才真正沉进去。这些都是旅行装，一壶几杯，装在皮箱里就能带走。摆摊价，不还虚的。",
+ faqTitle:"常见问题",
+ faq:[["能带上飞机吗？","能，整套放皮箱里托运就行。茶壶用衣服裹一下。"],
+      ["能进洗碗机吗？","不建议，温水手洗。汝窑开片别用钢丝球。"],
+      ["便宜点行吗？","买两套以上可以谈，直接问老板。"],
+      ["怎么付款？","现金、微信、支付宝都可以。"]],
+ foot:"从张家界带回去 · 摆着就像在山里"},
+en:{h1:"A Small Stall in the Mountains",sub:"Jingdezhen & Ru-kiln tea ware · carved wood",
+ kick:"ZHANGJIAJIE · HANDMADE STALL",price:"CNY",
+ secTitle:"Tea Sets · White Porcelain & Ru Kiln",
+ story:"White porcelain comes down the road from Jingdezhen and Dehua; Ru kiln from Qingliang Temple in Baofeng. Same rule either way: thin body, glassy glaze, 1,300°C — only then does the colour sink in. These are travel sets: one pot, a few cups, packed in a leather case. Stall price, no fuss.",
+ faqTitle:"FAQ",
+ faq:[["Can I take it on a plane?","Yes — the whole set goes in checked baggage. Wrap the pot in clothes."],
+      ["Dishwasher safe?","No. Hand wash in warm water. No steel wool on crackle glaze."],
+      ["Any discount?","Two sets or more — ask the owner."],
+      ["How to pay?","Cash, WeChat Pay or Alipay."]],
+ foot:"Carried home from Zhangjiajie"},
+ko:{h1:"산 아래 작은 노점",sub:"징더전·여요 다기 · 목조각",
+ kick:"장자제 · 수공예 노점",price:"위안",
+ secTitle:"다기 · 백자와 여요",
+ story:"백자는 징더전과 더화에서, 여요는 바오펑 칭량사에서 왔습니다. 원리는 같습니다. 얇은 몸체, 윤기 있는 유약, 1,300도의 불 — 그래야 색이 속으로 스며듭니다. 모두 여행용으로, 가죽 케이스에 담아 가져가실 수 있습니다.",
+ faqTitle:"자주 묻는 질문",
+ faq:[["비행기에 가져갈 수 있나요?","네, 케이스째 위탁 수하물로 가능합니다."],
+      ["식기세척기 사용 가능한가요?","권하지 않습니다. 미지근한 물로 손세척하세요."],
+      ["깎아 주시나요?","두 세트 이상이면 조정 가능합니다."],
+      ["결제는 어떻게 하나요?","현금, 위챗페이, 알리페이 모두 됩니다."]],
+ foot:"장자제에서 가져가는 작은 산"},
+ru:{h1:"Маленькая лавка у гор",sub:"Посуда Цзиндэчжэня и Жу · резьба",
+ kick:"ЧЖАНЦЗЯЦЗЕ · РУЧНАЯ РАБОТА",price:"юаней",
+ secTitle:"Чайные наборы · Белый фарфор и Жу",
+ story:"Белый фарфор идёт из Цзиндэчжэня и Дэхуа, Жу — из храма Цинлян в Баофэне. Правило одно: тонкое тело, стеклянная глазурь, 1300°C — только тогда цвет уходит внутрь. Это дорожные наборы: чайник и несколько чашек в кожаном кейсе.",
+ faqTitle:"Вопросы",
+ faq:[["Можно в самолёт?","Да, весь набор в багаж."],
+      ["Можно в посудомойку?","Нет. Тёплая вода, вручную."],
+      ["Есть скидка?","От двух наборов — спросите хозяина."],
+      ["Как оплатить?","Наличные, WeChat Pay или Alipay."]],
+ foot:"Из Чжанцзяцзе — к вам домой"}
 };
 
-let lang = "zh";
-const $ = s => document.querySelector(s);
+let lang="zh";
+const $=s=>document.querySelector(s);
+const LIDX={zh:0,en:1,ko:2,ru:3};
 
 function render(){
-  const d = T[lang];
-  document.documentElement.lang = lang;
-  $("#kick").textContent = d.kick;
-  $("#h1").textContent = d.h1;
-  $("#sub").textContent = d.sub;
-  document.title = d.h1;
+  const d=T[lang], k=LIDX[lang];
+  document.documentElement.lang=lang;
+  $("#kick").textContent=d.kick; $("#h1").textContent=d.h1;
+  $("#sub").textContent=d.sub; document.title=d.h1;
 
-  $("#main").innerHTML = d.sections.map(sec => `
-    <section class="sect">
-      <h2>${sec.title}</h2>
-      <div class="line"></div>
-      <p class="story">${sec.story}</p>
-    </section>
-    ${sec.items.map(it => `
-      <article class="card">
-        <img src="${it.img}" alt="${it.nm}" loading="lazy">
-        <div class="cbody">
-          <div class="row">
-            <div class="nm">${it.nm}</div>
-            <div class="pr">¥${it.pr}<small>${it.unit}</small></div>
-          </div>
-          <p class="ds">${it.ds}</p>
-          <div class="tags">${it.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
+  const cards = DATA.items.map(it=>`
+    <article class="card">
+      <img src="${it.img}" alt="${it.n[k]}" loading="lazy">
+      <div class="cbody">
+        <div class="row">
+          <div class="nm">${it.n[k]}</div>
+          <div class="pr">¥${DATA.price}<small>/${lang==='zh'?'套':lang==='en'?'set':lang==='ko'?'세트':'набор'}</small></div>
         </div>
-      </article>`).join("")}
-  `).join("");
+        <p class="ds">${it.d[k]}</p>
+        <div class="tags"><span class="tag">${lang==='zh'?'一整套':lang==='en'?'Full set':lang==='ko'?'풀세트':'Полный набор'}</span>
+        <span class="tag">${lang==='zh'?'可托运':lang==='en'?'Check-in OK':lang==='ko'?'위탁 가능':'В багаж'}</span></div>
+      </div>
+    </article>`).join("");
 
-  $("#faq").innerHTML = `<h3>${d.faqTitle}</h3>` + d.faq.map(([q,a]) =>
+  $("#main").innerHTML = `
+    <section class="sect"><h2>${d.secTitle}</h2><div class="line"></div>
+    <p class="story">${d.story}</p></section>${cards}`;
+
+  $("#faq").innerHTML = `<h3>${d.faqTitle}</h3>` + d.faq.map(([q,a])=>
     `<div class="qa"><div class="q">${q}</div><div class="a">${a}</div></div>`).join("");
-
-  $("#foot").textContent = d.foot;
-  document.querySelectorAll(".langs button").forEach(b =>
-    b.classList.toggle("on", b.dataset.lang === lang));
+  $("#foot").textContent=d.foot;
+  document.querySelectorAll(".langs button").forEach(b=>b.classList.toggle("on",b.dataset.lang===lang));
 }
-
-document.querySelectorAll(".langs button").forEach(b =>
-  b.onclick = () => { lang = b.dataset.lang; render(); });
-
+document.querySelectorAll(".langs button").forEach(b=>b.onclick=()=>{lang=b.dataset.lang;render()});
 render();
 </script>
 </body>
