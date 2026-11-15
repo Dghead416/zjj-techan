@@ -3,77 +3,72 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>张家界特产 · Zhangjiajie Local Specialties</title>
+<title>山上小摊 · 茶具与木雕</title>
 <style>
   :root{
-    --bg:#fbf8f3; --card:#ffffff; --ink:#23262b; --sub:#7b8189;
-    --line:#ece7df; --acc:#c8552f; --acc2:#e8a33d;
+    --bg:#f7f4ee; --card:#fff; --ink:#25231f; --sub:#78736b;
+    --line:#e7e1d6; --acc:#9a5b32; --acc2:#3f6b63;
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{background:#eae5db}
   body{
-    margin:0 auto;max-width:560px;background:var(--bg);color:var(--ink);
-    box-shadow:0 0 60px rgba(0,0,0,.08);min-height:100vh;
+    margin:0 auto;max-width:600px;background:var(--bg);color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",system-ui,sans-serif;
-    padding-bottom:40px;
+    box-shadow:0 0 70px rgba(0,0,0,.09);min-height:100vh;padding-bottom:36px;
   }
-  header{
-    padding:26px 20px 18px;
-    background:linear-gradient(160deg,#fdf3e7 0%,#fbf8f3 100%);
-    border-bottom:1px solid var(--line);
-  }
-  .kicker{font-size:12px;letter-spacing:.22em;color:var(--acc);font-weight:700;margin-bottom:8px}
-  h1{margin:0;font-size:27px;letter-spacing:.02em;line-height:1.25}
-  .sub{margin:8px 0 0;color:var(--sub);font-size:13.5px;line-height:1.6}
-  .langs{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+  header{padding:26px 22px 20px;border-bottom:1px solid var(--line)}
+  .kick{font-size:11.5px;letter-spacing:.24em;color:var(--acc);font-weight:700}
+  h1{margin:9px 0 0;font-size:26px;line-height:1.3}
+  .sub{margin:9px 0 0;color:var(--sub);font-size:13.5px;line-height:1.65}
+  .langs{display:flex;gap:7px;margin-top:16px;flex-wrap:wrap}
   .langs button{
     border:1px solid var(--line);background:#fff;color:var(--sub);
-    padding:7px 14px;border-radius:999px;font-size:13px;cursor:pointer;font-weight:600;
+    padding:7px 13px;border-radius:999px;font-size:12.5px;font-weight:600;cursor:pointer;
   }
   .langs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-  main{padding:16px}
-  .card{
-    background:var(--card);border-radius:16px;overflow:hidden;
-    box-shadow:0 2px 10px rgba(30,25,20,.05);margin-bottom:14px;
+  .sect{padding:24px 22px 6px}
+  .sect h2{margin:0;font-size:20px;letter-spacing:.02em}
+  .sect .line{width:44px;height:3px;background:var(--acc);margin:10px 0 14px;border-radius:2px}
+  .story{
+    font-size:14px;line-height:1.85;color:#4a463f;margin:0 0 4px;
+    padding:14px 16px;background:#fffdf9;border-left:3px solid var(--acc2);border-radius:0 10px 10px 0;
   }
-  .card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#eee}
-  .body{padding:14px 16px 16px}
+  main{padding:6px 16px}
+  .card{background:var(--card);border-radius:16px;overflow:hidden;margin:16px 0;
+        box-shadow:0 2px 12px rgba(40,30,20,.06)}
+  .card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:#eee}
+  .cbody{padding:14px 16px 16px}
   .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-  .name{font-size:19px;font-weight:700;line-height:1.3}
-  .price{font-size:19px;font-weight:800;color:var(--acc);white-space:nowrap}
-  .price small{font-size:12px;font-weight:600;color:var(--sub);margin-left:2px}
-  .desc{margin:8px 0 0;font-size:14px;color:var(--sub);line-height:1.7}
+  .nm{font-size:18px;font-weight:700;line-height:1.35}
+  .pr{font-size:18px;font-weight:800;color:var(--acc);white-space:nowrap}
+  .pr small{font-size:11.5px;color:var(--sub);font-weight:600;margin-left:2px}
+  .ds{margin:8px 0 0;font-size:13.5px;color:var(--sub);line-height:1.7}
   .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:11px}
-  .tag{font-size:11.5px;padding:4px 9px;border-radius:6px;background:#f4efe7;color:#8a7558}
-  .faq{
-    background:#fff;border-radius:16px;padding:6px 16px;margin-top:6px;
-    box-shadow:0 2px 10px rgba(30,25,20,.05);
-  }
-  .faq h2{font-size:15px;margin:14px 0 6px;color:var(--ink)}
+  .tag{font-size:11px;padding:4px 9px;border-radius:6px;background:#f2ece1;color:#8c7554}
+  .faq{background:#fff;border-radius:16px;padding:4px 16px;margin:22px 16px 0;
+       box-shadow:0 2px 12px rgba(40,30,20,.06)}
+  .faq h3{font-size:14.5px;margin:15px 0 4px}
   .qa{border-top:1px solid var(--line);padding:13px 0}
   .qa:first-of-type{border-top:none}
-  .q{font-size:14.5px;font-weight:600;margin-bottom:4px}
-  .a{font-size:13.5px;color:var(--sub);line-height:1.65}
-  footer{text-align:center;color:#a9a49c;font-size:12px;padding:22px 20px 0;line-height:1.8}
-  .hint{
-    margin:0 16px 4px;padding:11px 14px;border-radius:12px;
-    background:#fdf3e7;color:#8a6a45;font-size:12.5px;line-height:1.6;
-  }
+  .q{font-size:14px;font-weight:600;margin-bottom:4px}
+  .a{font-size:13px;color:var(--sub);line-height:1.65}
+  footer{text-align:center;color:#a8a29a;font-size:11.5px;padding:24px 22px 0;line-height:1.9}
   @media (prefers-color-scheme: dark){
-    :root{--bg:#14140f;--card:#1e1e18;--ink:#f2efe9;--sub:#9a958c;--line:#2c2c24}
-    header{background:linear-gradient(160deg,#241d12 0%,#14140f 100%)}
-    .langs button{background:#1e1e18;color:#9a958c}
-    .tag{background:#2a2418;color:#c8a970}
-    .hint{background:#241d12;color:#c8a970}
+    :root{--bg:#15140f;--card:#201f19;--ink:#f1ede4;--sub:#9c968b;--line:#2e2c24}
+    html{background:#0f0e0b}
+    body{background:var(--bg)}
+    .langs button{background:#201f19;color:#9c968b}
+    .story{background:#1b1a14;color:#cfc9bc}
+    .tag{background:#2b271c;color:#c8a878}
   }
-  @media (min-width:600px){ html{background:#efece6} }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="kicker">ZHANGJIAJIE · 张家界</div>
-  <h1 id="h1">张家界本地特产</h1>
-  <p class="sub" id="sub">手工制作 · 现做现卖 · 可以试吃</p>
+  <div class="kick" id="kick">ZHANGJIAJIE · HANDMADE STALL</div>
+  <h1 id="h1">山上小摊 · 茶具与木雕</h1>
+  <p class="sub" id="sub">青花小茶具 · 实木手工雕件 · 摆摊价</p>
   <div class="langs">
     <button data-lang="zh" class="on">中文</button>
     <button data-lang="en">English</button>
@@ -82,161 +77,203 @@
   </div>
 </header>
 
-<p class="hint" id="hint">扫码看介绍 · 价格透明 · 不用问，自己看</p>
-
-<main id="list"></main>
-
+<main id="main"></main>
 <div class="faq" id="faq"></div>
-
 <footer id="foot"></footer>
 
 <script>
-const DATA = {
-  zh: {
-    h1: "张家界本地特产",
-    sub: "手工制作 · 现做现卖 · 可以试吃",
-    hint: "扫码看介绍 · 价格透明 · 不用问，自己看",
-    priceUnit: "元",
-    faqTitle: "常见问题",
-    faq: [
-      ["可以试吃吗？", "可以，直接跟老板说，大部分都能尝。"],
-      ["能带上飞机吗？", "腊肉、茶叶、粉类可以托运；液体和生鲜不行。"],
-      ["能便宜一点吗？", "买得多可以谈，两件以上问老板。"],
-      ["怎么保存？", "腊肉冷藏；莓茶、葛根粉、姜糖常温干燥处。"],
-      ["怎么付款？", "现金、微信、支付宝都可以。"]
-    ],
-    foot: "土家风味 · 山上山下 · 一路带到你家",
-    items: [
-      {img:"img/larou.jpg", name:"土家腊肉", price:68, unit:"/斤",
-       desc:"柴火慢熏，肥而不腻，切薄片炒蒜苗最好吃。", tags:["可试吃","可托运"]},
-      {img:"img/meicha.jpg", name:"张家界莓茶", price:45, unit:"/盒",
-       desc:"山上野生，泡出来浅黄回甘，当地人当茶喝。", tags:["可试吃","伴手礼"]},
-      {img:"img/gefen.jpg", name:"葛根粉", price:30, unit:"/袋",
-       desc:"开水一冲就成糊，加点蜂蜜，老人小孩都能喝。", tags:["冲饮","易携带"]},
-      {img:"img/jiangtang.jpg", name:"姜糖", price:20, unit:"/盒",
-       desc:"手工拉的姜糖，微辣回甜，坐车晕车含一颗。", tags:["可试吃","零食"]},
-      {img:"img/zhijin.jpg", name:"土家织锦", price:88, unit:"/条",
-       desc:"西兰卡普，手工织的，花纹是土家老样子。", tags:["手工","纪念品"]}
-    ]
-  },
-  en: {
-    h1: "Zhangjiajie Local Specialties",
-    sub: "Handmade · Fresh daily · Free tasting",
-    hint: "Scan to read · Clear prices · No need to ask",
-    priceUnit: "CNY",
-    faqTitle: "FAQ",
-    faq: [
-      ["Can I taste it?", "Yes. Just tell the owner — most items are available for tasting."],
-      ["Can I take it on a plane?", "Cured meat, tea and powders are fine in checked baggage. Liquids and fresh food are not."],
-      ["Any discount?", "Ask for two items or more — the owner is flexible."],
-      ["How to store it?", "Keep cured meat refrigerated; tea, powder and candy in a dry place."],
-      ["How to pay?", "Cash, WeChat Pay or Alipay."]
-    ],
-    foot: "Tujia flavour · from the mountains to your home",
-    items: [
-      {img:"img/larou.jpg", name:"Tujia Cured Pork", price:68, unit:"/500g",
-       desc:"Slow-smoked over wood fire. Slice thin and stir-fry with garlic sprouts.", tags:["Tasting","Check-in OK"]},
-      {img:"img/meicha.jpg", name:"Vine Tea (Mei Cha)", price:45, unit:"/box",
-       desc:"Wild-picked on the mountain. Pale golden brew with a sweet finish.", tags:["Tasting","Gift"]},
-      {img:"img/gefen.jpg", name:"Kudzu Root Powder", price:30, unit:"/bag",
-       desc:"Just add hot water. Mild and smooth — good for kids and elders.", tags:["Instant drink","Easy to carry"]},
-      {img:"img/jiangtang.jpg", name:"Ginger Candy", price:20, unit:"/box",
-       desc:"Hand-pulled. Slightly spicy, then sweet. Helps with motion sickness.", tags:["Tasting","Snack"]},
-      {img:"img/zhijin.jpg", name:"Tujia Brocade", price:88, unit:"/piece",
-       desc:"Xilankapu — handwoven on a wooden loom, traditional Tujia patterns.", tags:["Handmade","Souvenir"]}
-    ]
-  },
-  ko: {
-    h1: "장자제 토산품",
-    sub: "수공예 · 당일 제조 · 시식 가능",
-    hint: "QR로 확인 · 가격 투명 · 물어보지 않아도 됩니다",
-    priceUnit: "위안",
-    faqTitle: "자주 묻는 질문",
-    faq: [
-      ["시식할 수 있나요?", "네, 사장님께 말씀하시면 대부분 맛볼 수 있습니다."],
-      ["비행기에 가져갈 수 있나요?", "육포·차·가루류는 위탁 수하물로 가능합니다. 액체와 생식품은 안 됩니다."],
-      ["깎아 주시나요?", "두 개 이상 구매하시면 조정 가능합니다."],
-      ["보관은 어떻게 하나요?", "육포는 냉장, 차·가루·사탕은 서늘하고 건조한 곳에 보관하세요."],
-      ["결제는 어떻게 하나요?", "현금, 위챗페이, 알리페이 모두 가능합니다."]
-    ],
-    foot: "투자족의 맛 · 산에서 집까지",
-    items: [
-      {img:"img/larou.jpg", name:"투자족 훈제 육포", price:68, unit:"/500g",
-       desc:"장작으로 천천히 훈연했습니다. 얇게 썰어 마늘종과 볶으면 좋습니다.", tags:["시식","기내 가능"]},
-      {img:"img/meicha.jpg", name:"장자제 매차(덩굴차)", price:45, unit:"/박스",
-       desc:"산에서 야생 채취. 연한 황금색 차에 은은한 단맛이 있습니다.", tags:["시식","선물용"]},
-      {img:"img/gefen.jpg", name:"칡뿌리 가루", price:30, unit:"/봉",
-       desc:"뜨거운 물만 부으면 됩니다. 부드러워서 아이와 어르신께 좋습니다.", tags:["간편 음료","휴대 간편"]},
-      {img:"img/jiangtang.jpg", name:"생강 캔디", price:20, unit:"/박스",
-       desc:"수작업으로 만든 캔디. 약간 맵고 달콤합니다. 멀미에 도움이 됩니다.", tags:["시식","간식"]},
-      {img:"img/zhijin.jpg", name:"투자족 직금", price:88, unit:"/점",
-       desc:"시란카푸 — 전통 문양을 손베틀로 짠 직물입니다.", tags:["수공예","기념품"]}
-    ]
-  },
-  ru: {
-    h1: "Местные specialty Чжанцзяцзе",
-    sub: "Ручная работа · Свежее каждый день · Дегустация",
-    hint: "Сканируйте · Прозрачные цены · Спрашивать не нужно",
-    priceUnit: "юаней",
-    faqTitle: "Вопросы",
-    faq: [
-      ["Можно попробовать?", "Да, скажите хозяину — почти всё можно попробовать."],
-      ["Можно взять в самолёт?", "Мясо, чай и порошки — в багаж. Жидкости и свежие продукты нельзя."],
-      ["Есть скидка?", "При покупке двух штук и более — договоритесь с хозяином."],
-      ["Как хранить?", "Мясо — в холодильнике; чай, порошок и конфеты — в сухом месте."],
-      ["Как оплатить?", "Наличные, WeChat Pay или Alipay."]
-    ],
-    foot: "Вкус гор · с гор — к вашему столу",
-    items: [
-      {img:"img/larou.jpg", name:"Копчёное мясо туцзя", price:68, unit:"/500 г",
-       desc:"Медленное копчение на дровах. Нарежьте тонко и обжарьте с чесноком.", tags:["Дегустация","В багаж"]},
-      {img:"img/meicha.jpg", name:"Чай из лианы (Мэй Ча)", price:45, unit:"/коробка",
-       desc:"Дикий горный чай. Светло-золотой настой со сладким послевкусием.", tags:["Дегустация","Подарок"]},
-      {img:"img/gefen.jpg", name:"Порошок кудзу", price:30, unit:"/пакет",
-       desc:"Просто добавьте кипяток. Мягкий вкус, подходит детям и пожилым.", tags:["Быстрый напиток","Удобно"]},
-      {img:"img/jiangtang.jpg", name:"Имбирные конфеты", price:20, unit:"/коробка",
-       desc:"Ручная вытяжка. Слегка остро, затем сладко. Помогает от укачивания.", tags:["Дегустация","Снек"]},
-      {img:"img/zhijin.jpg", name:"Парча туцзя", price:88, unit:"/шт",
-       desc:"Силанькапу — ручное ткачество на деревянном станке, традиционный узор.", tags:["Ручная работа","Сувенир"]}
-    ]
-  }
+const T = {
+zh:{
+  kick:"ZHANGJIAJIE · HANDMADE STALL",
+  h1:"山上小摊 · 茶具与木雕",
+  sub:"青花小茶具 · 实木手工雕件 · 摆摊价",
+  price:"元",
+  sections:[
+    {title:"茶具 · 青花的路子",
+     story:"青花的路子是从景德镇来的。高岭土做胎，一笔一笔描在釉下，烧到一千三百度，蓝色才真正沉进瓷里。我们摊上这些都是小件——不大，够两个人喝一壶。山里人喝茶不讲究，抓一把茶叶丢进壶，坐在门口就是一个下午。",
+     items:[
+       {img:"img/tea1.jpg", nm:"青花一壶四杯", pr:128, unit:"/套",
+        ds:"小壶配四只杯，釉下青花，手感轻，适合自己喝也适合送人。",
+        tags:["可托运","送礼","手绘"]},
+       {img:"img/tea2.jpg", nm:"手绘小茶杯", pr:25, unit:"/只",
+        ds:"单只卖，配齐一套也行。杯口圆润，喝水喝茶都顺手。",
+        tags:["可单买","可托运"]}
+     ]},
+    {title:"木雕 · 一刀一刀修出来的",
+     story:"一整块木头，先看纹路，再决定凿子往哪走。土家人刻房子、刻山、刻背篓，刻的都是天天见的东西。木头会随天气涨缩，打磨时要留三分，用久了才不裂。边角都修过，摸着不扎手。",
+     items:[
+       {img:"img/wood1.jpg", nm:"山形实木摆件", pr:168, unit:"/件",
+        ds:"整料雕的山，木纹自己走，每件花纹都不一样。",
+        tags:["手工打磨","整块实木","唯一"]},
+       {img:"img/wood2.jpg", nm:"吊脚楼小摆件", pr:98, unit:"/件",
+        ds:"按土家吊脚楼刻的，放书桌或柜台都好看。",
+        tags:["手工","本地题材","可托运"]}
+     ]}
+  ],
+  faqTitle:"常见问题",
+  faq:[
+    ["茶具能进洗碗机吗？","不建议。温水手洗，别用钢丝球。"],
+    ["木头会不会裂？","正常放着不会。别暴晒、别泡水，干燥季节上点木蜡油。"],
+    ["能带上飞机吗？","可以，托运就行。茶具用衣服裹一下。"],
+    ["能便宜点吗？","买两件以上可以谈，直接问老板。"],
+    ["怎么付款？","现金、微信、支付宝都行。"]
+  ],
+  foot:"从山下来 · 一路带到你家"
+},
+en:{
+  kick:"ZHANGJIAJIE · HANDMADE STALL",
+  h1:"A Small Stall in the Mountains",
+  sub:"Blue-and-white tea sets & hand-carved wood",
+  price:"CNY",
+  sections:[
+    {title:"Tea Sets · The Blue-and-White Way",
+     story:"The blue-and-white way comes from Jingdezhen. Kaolin clay for the body, patterns painted brush by brush under the glaze, fired at 1,300°C — that is how the blue sinks into the porcelain. Ours are small pieces: not grand, just enough for two people and one pot. Mountain people keep tea simple — a handful of leaves, a stool by the door, and the afternoon is gone.",
+     items:[
+       {img:"img/tea1.jpg", nm:"Blue-and-White Set (1 pot, 4 cups)", pr:128, unit:"/set",
+        ds:"Small pot with four cups. Underglaze blue, light in the hand. Good for daily use or as a gift.",
+        tags:["Check-in OK","Gift","Hand-painted"]},
+       {img:"img/tea2.jpg", nm:"Hand-painted Cup", pr:25, unit:"/piece",
+        ds:"Sold singly, or build a set. Rounded rim, comfortable for water or tea.",
+        tags:["Buy one","Check-in OK"]}
+     ]},
+    {title:"Wood Carving · Shaped Cut by Cut",
+     story:"One piece of wood. First read the grain, then decide where the chisel goes. The Tujia carve houses, mountains, back-baskets — the things they see every day. Wood swells and shrinks with the weather, so we leave a little room when sanding; used long enough, it will not split. Every edge is worked, none of them bite.",
+     items:[
+       {img:"img/wood1.jpg", nm:"Carved Mountain, Solid Wood", pr:168, unit:"/piece",
+        ds:"Carved from one block. The grain runs its own way — no two are alike.",
+        tags:["Hand-sanded","Solid wood","One of a kind"]},
+       {img:"img/wood2.jpg", nm:"Tujia Stilt House Carving", pr:98, unit:"/piece",
+        ds:"Modelled on a Tujia stilt house. Sits well on a desk or a counter.",
+        tags:["Handmade","Local motif","Check-in OK"]}
+     ]}
+  ],
+  faqTitle:"FAQ",
+  faq:[
+    ["Is the tea set dishwasher safe?","No. Wash by hand in warm water, no steel wool."],
+    ["Will the wood crack?","Not under normal conditions. Keep it out of sun and water; oil it in dry season."],
+    ["Can I take it on a plane?","Yes, in checked baggage. Wrap the tea set in clothes."],
+    ["Any discount?","Two pieces or more — ask the owner."],
+    ["How to pay?","Cash, WeChat Pay or Alipay."]
+  ],
+  foot:"From the mountain · all the way to your home"
+},
+ko:{
+  kick:"장자제 · 수공예 노점",
+  h1:"산 아래 작은 노점",
+  sub:"청화 자기 다기 세트 · 수작업 목조각",
+  price:"위안",
+  sections:[
+    {title:"다기 · 청화의 길",
+     story:"청화의 길은 징더전에서 왔습니다. 고령토로 형태를 만들고, 붓으로 하나하나 유약 아래에 그린 뒤 1,300도로 구우면 비로소 그 파란색이 자기 속으로 스며듭니다. 저희 것은 작은 편입니다. 크지 않고, 두 사람이 차 한 주전자 나누기 좋은 크기입니다. 산사람은 차를 간단히 마십니다. 찻잎 한 줌을 주전자에 넣고 문가에 앉으면 오후가 다 갑니다.",
+     items:[
+       {img:"img/tea1.jpg", nm:"청화 다기 (주전자 1 + 잔 4)", pr:128, unit:"/세트",
+        ds:"작은 주전자와 잔 네 개. 유약 아래 청화, 가볍고 손에 잘 맞습니다.",
+        tags:["위탁 가능","선물","수작업 그림"]},
+       {img:"img/tea2.jpg", nm:"수작업 찻잔", pr:25, unit:"/개",
+        ds:"한 개씩 판매합니다. 세트로 맞춰도 좋습니다.",
+        tags:["낱개 구매","위탁 가능"]}
+     ]},
+    {title:"목조각 · 한 칼씩 다듬은 것",
+     story:"나무 한 덩어리를 놓고 먼저 결을 봅니다. 그다음 끌이 어디로 갈지 정합니다. 투자족은 집과 산, 바구니를 새깁니다. 매일 보는 것들이니까요. 나무는 날씨에 따라 늘고 줄어서, 사포질할 때 여유를 조금 남겨야 오래 써도 갈라지지 않습니다. 모서리는 모두 다듬어 손에 걸리지 않습니다.",
+     items:[
+       {img:"img/wood1.jpg", nm:"산 모양 원목 조각", pr:168, unit:"/점",
+        ds:"통나무 하나를 깎았습니다. 결이 제각각이라 같은 것이 없습니다.",
+        tags:["수작업 연마","원목","유일"]},
+       {img:"img/wood2.jpg", nm:"투자족 고상가옥 조각", pr:98, unit:"/점",
+        ds:"투자족의 고상가옥을 본떠 새겼습니다. 책상이나 카운터에 잘 어울립니다.",
+        tags:["수공예","현지 소재","위탁 가능"]}
+     ]}
+  ],
+  faqTitle:"자주 묻는 질문",
+  faq:[
+    ["다기를 식기세척기에 넣어도 되나요?","권하지 않습니다. 미지근한 물로 손세척하세요."],
+    ["나무가 갈라지지 않나요?","정상 사용에서는 괜찮습니다. 직사광선과 물을 피하고, 건조한 계절엔 오일을 발라 주세요."],
+    ["비행기에 가져갈 수 있나요?","네, 위탁 수하물로 가능합니다. 다기는 옷으로 감싸세요."],
+    ["깎아 주시나요?","두 점 이상이면 조정 가능합니다."],
+    ["결제는 어떻게 하나요?","현금, 위챗페이, 알리페이 모두 됩니다."]
+  ],
+  foot:"산에서 내려와 · 당신 집까지"
+},
+ru:{
+  kick:"ЧЖАНЦЗЯЦЗЕ · РУЧНАЯ РАБОТА",
+  h1:"Маленькая лавка у гор",
+  sub:"Чайные наборы и резьба по дереву",
+  price:"юаней",
+  sections:[
+    {title:"Чайные наборы · Путь сине-белого фарфора",
+     story:"Путь сине-белого фарфора идёт из Цзиндэчжэня. Каолин для тела, узор кисть за кистью под глазурью, обжиг при 1300°C — только так синий уходит внутрь фарфора. У нас небольшие вещи: не grand, ровно на двоих и один чайник. В горах чай простой: горсть листьев в чайник, табурет у двери — и день прошёл.",
+     items:[
+       {img:"img/tea1.jpg", nm:"Сине-белый набор (чайник + 4 чашки)", pr:128, unit:"/набор",
+        ds:"Маленький чайник и четыре чашки. Кобальт под глазурью, лёгкие в руке.",
+        tags:["В багаж","Подарок","Роспись вручную"]},
+       {img:"img/tea2.jpg", nm:"Чашка с ручной росписью", pr:25, unit:"/шт",
+        ds:"Продаётся по одной. Можно собрать набор.",
+        tags:["По одной","В багаж"]}
+     ]},
+    {title:"Резьба · Каждая грань вручную",
+     story:"Один кусок дерева. Сначала смотрим на волокно, потом решаем, куда пойдёт стамеска. Туцзя режут дома, горы, корзины — то, что видят каждый день. Дерево дышит, поэтому при шлифовке оставляем запас: так оно не треснет со временем. Все кромки обработаны — руку не режут.",
+     items:[
+       {img:"img/wood1.jpg", nm:"Горы, резьба по цельному дереву", pr:168, unit:"/шт",
+        ds:"Вырезано из одного бруска. Волокно идёт само — двух одинаковых нет.",
+        tags:["Ручная шлифовка","Цельное дерево","Уникально"]},
+       {img:"img/wood2.jpg", nm:"Дом на сваях (туцзя)", pr:98, unit:"/шт",
+        ds:"По мотивам дома туцзя на сваях. Хорошо смотрится на столе.",
+        tags:["Ручная работа","Местный мотив","В багаж"]}
+     ]}
+  ],
+  faqTitle:"Вопросы",
+  faq:[
+    ["Можно мыть в посудомойке?","Не советуем. Тёплая вода, вручную, без металлической губки."],
+    ["Дерево не треснет?","При нормальных условиях — нет. Берегите от солнца и воды, в сухой сезон смазывайте маслом."],
+    ["Можно взять в самолёт?","Да, в багаж. Набор заверните в одежду."],
+    ["Есть скидка?","От двух штук — спросите хозяина."],
+    ["Как оплатить?","Наличные, WeChat Pay или Alipay."]
+  ],
+  foot:"С гор · до вашего дома"
+}
 };
 
 let lang = "zh";
 const $ = s => document.querySelector(s);
 
 function render(){
-  const d = DATA[lang];
+  const d = T[lang];
   document.documentElement.lang = lang;
+  $("#kick").textContent = d.kick;
   $("#h1").textContent = d.h1;
   $("#sub").textContent = d.sub;
-  $("#hint").textContent = d.hint;
   document.title = d.h1;
 
-  $("#list").innerHTML = d.items.map(it => `
-    <article class="card">
-      <img src="${it.img}" alt="${it.name}" loading="lazy">
-      <div class="body">
-        <div class="row">
-          <div class="name">${it.name}</div>
-          <div class="price">¥${it.price}<small>${it.unit}</small></div>
+  $("#main").innerHTML = d.sections.map(sec => `
+    <section class="sect">
+      <h2>${sec.title}</h2>
+      <div class="line"></div>
+      <p class="story">${sec.story}</p>
+    </section>
+    ${sec.items.map(it => `
+      <article class="card">
+        <img src="${it.img}" alt="${it.nm}" loading="lazy">
+        <div class="cbody">
+          <div class="row">
+            <div class="nm">${it.nm}</div>
+            <div class="pr">¥${it.pr}<small>${it.unit}</small></div>
+          </div>
+          <p class="ds">${it.ds}</p>
+          <div class="tags">${it.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
         </div>
-        <p class="desc">${it.desc}</p>
-        <div class="tags">${it.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
-      </div>
-    </article>`).join("");
+      </article>`).join("")}
+  `).join("");
 
-  $("#faq").innerHTML = `<h2>${d.faqTitle}</h2>` + d.faq.map(([q,a]) => `
-    <div class="qa"><div class="q">${q}</div><div class="a">${a}</div></div>`).join("");
+  $("#faq").innerHTML = `<h3>${d.faqTitle}</h3>` + d.faq.map(([q,a]) =>
+    `<div class="qa"><div class="q">${q}</div><div class="a">${a}</div></div>`).join("");
 
   $("#foot").textContent = d.foot;
   document.querySelectorAll(".langs button").forEach(b =>
     b.classList.toggle("on", b.dataset.lang === lang));
 }
 
-document.querySelectorAll(".langs button").forEach(b => {
-  b.onclick = () => { lang = b.dataset.lang; render(); };
-});
+document.querySelectorAll(".langs button").forEach(b =>
+  b.onclick = () => { lang = b.dataset.lang; render(); });
 
 render();
 </script>
