@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>张家界特产 · Zhangjiajie Local Specialties</title>
+<style>
+  :root{
+    --bg:#fbf8f3; --card:#ffffff; --ink:#23262b; --sub:#7b8189;
+    --line:#ece7df; --acc:#c8552f; --acc2:#e8a33d;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{
+    margin:0 auto;max-width:560px;background:var(--bg);color:var(--ink);
+    box-shadow:0 0 60px rgba(0,0,0,.08);min-height:100vh;
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+    padding-bottom:40px;
+  }
+  header{
+    padding:26px 20px 18px;
+    background:linear-gradient(160deg,#fdf3e7 0%,#fbf8f3 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .kicker{font-size:12px;letter-spacing:.22em;color:var(--acc);font-weight:700;margin-bottom:8px}
+  h1{margin:0;font-size:27px;letter-spacing:.02em;line-height:1.25}
+  .sub{margin:8px 0 0;color:var(--sub);font-size:13.5px;line-height:1.6}
+  .langs{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+  .langs button{
+    border:1px solid var(--line);background:#fff;color:var(--sub);
+    padding:7px 14px;border-radius:999px;font-size:13px;cursor:pointer;font-weight:600;
+  }
+  .langs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  main{padding:16px}
+  .card{
+    background:var(--card);border-radius:16px;overflow:hidden;
+    box-shadow:0 2px 10px rgba(30,25,20,.05);margin-bottom:14px;
+  }
+  .card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#eee}
+  .body{padding:14px 16px 16px}
+  .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .name{font-size:19px;font-weight:700;line-height:1.3}
+  .price{font-size:19px;font-weight:800;color:var(--acc);white-space:nowrap}
+  .price small{font-size:12px;font-weight:600;color:var(--sub);margin-left:2px}
+  .desc{margin:8px 0 0;font-size:14px;color:var(--sub);line-height:1.7}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:11px}
+  .tag{font-size:11.5px;padding:4px 9px;border-radius:6px;background:#f4efe7;color:#8a7558}
+  .faq{
+    background:#fff;border-radius:16px;padding:6px 16px;margin-top:6px;
+    box-shadow:0 2px 10px rgba(30,25,20,.05);
+  }
+  .faq h2{font-size:15px;margin:14px 0 6px;color:var(--ink)}
+  .qa{border-top:1px solid var(--line);padding:13px 0}
+  .qa:first-of-type{border-top:none}
+  .q{font-size:14.5px;font-weight:600;margin-bottom:4px}
+  .a{font-size:13.5px;color:var(--sub);line-height:1.65}
+  footer{text-align:center;color:#a9a49c;font-size:12px;padding:22px 20px 0;line-height:1.8}
+  .hint{
+    margin:0 16px 4px;padding:11px 14px;border-radius:12px;
+    background:#fdf3e7;color:#8a6a45;font-size:12.5px;line-height:1.6;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{--bg:#14140f;--card:#1e1e18;--ink:#f2efe9;--sub:#9a958c;--line:#2c2c24}
+    header{background:linear-gradient(160deg,#241d12 0%,#14140f 100%)}
+    .langs button{background:#1e1e18;color:#9a958c}
+    .tag{background:#2a2418;color:#c8a970}
+    .hint{background:#241d12;color:#c8a970}
+  }
+  @media (min-width:600px){ html{background:#efece6} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker">ZHANGJIAJIE · 张家界</div>
+  <h1 id="h1">张家界本地特产</h1>
+  <p class="sub" id="sub">手工制作 · 现做现卖 · 可以试吃</p>
+  <div class="langs">
+    <button data-lang="zh" class="on">中文</button>
+    <button data-lang="en">English</button>
+    <button data-lang="ko">한국어</button>
+    <button data-lang="ru">Русский</button>
+  </div>
+</header>
+
+<p class="hint" id="hint">扫码看介绍 · 价格透明 · 不用问，自己看</p>
+
+<main id="list"></main>
+
+<div class="faq" id="faq"></div>
+
+<footer id="foot"></footer>
+
+<script>
+const DATA = {
+  zh: {
+    h1: "张家界本地特产",
+    sub: "手工制作 · 现做现卖 · 可以试吃",
+    hint: "扫码看介绍 · 价格透明 · 不用问，自己看",
+    priceUnit: "元",
+    faqTitle: "常见问题",
+    faq: [
+      ["可以试吃吗？", "可以，直接跟老板说，大部分都能尝。"],
+      ["能带上飞机吗？", "腊肉、茶叶、粉类可以托运；液体和生鲜不行。"],
+      ["能便宜一点吗？", "买得多可以谈，两件以上问老板。"],
+      ["怎么保存？", "腊肉冷藏；莓茶、葛根粉、姜糖常温干燥处。"],
+      ["怎么付款？", "现金、微信、支付宝都可以。"]
+    ],
+    foot: "土家风味 · 山上山下 · 一路带到你家",
+    items: [
+      {img:"img/larou.jpg", name:"土家腊肉", price:68, unit:"/斤",
+       desc:"柴火慢熏，肥而不腻，切薄片炒蒜苗最好吃。", tags:["可试吃","可托运"]},
+      {img:"img/meicha.jpg", name:"张家界莓茶", price:45, unit:"/盒",
+       desc:"山上野生，泡出来浅黄回甘，当地人当茶喝。", tags:["可试吃","伴手礼"]},
+      {img:"img/gefen.jpg", name:"葛根粉", price:30, unit:"/袋",
+       desc:"开水一冲就成糊，加点蜂蜜，老人小孩都能喝。", tags:["冲饮","易携带"]},
+      {img:"img/jiangtang.jpg", name:"姜糖", price:20, unit:"/盒",
+       desc:"手工拉的姜糖，微辣回甜，坐车晕车含一颗。", tags:["可试吃","零食"]},
+      {img:"img/zhijin.jpg", name:"土家织锦", price:88, unit:"/条",
+       desc:"西兰卡普，手工织的，花纹是土家老样子。", tags:["手工","纪念品"]}
+    ]
+  },
+  en: {
+    h1: "Zhangjiajie Local Specialties",
+    sub: "Handmade · Fresh daily · Free tasting",
+    hint: "Scan to read · Clear prices · No need to ask",
+    priceUnit: "CNY",
+    faqTitle: "FAQ",
+    faq: [
+      ["Can I taste it?", "Yes. Just tell the owner — most items are available for tasting."],
+      ["Can I take it on a plane?", "Cured meat, tea and powders are fine in checked baggage. Liquids and fresh food are not."],
+      ["Any discount?", "Ask for two items or more — the owner is flexible."],
+      ["How to store it?", "Keep cured meat refrigerated; tea, powder and candy in a dry place."],
+      ["How to pay?", "Cash, WeChat Pay or Alipay."]
+    ],
+    foot: "Tujia flavour · from the mountains to your home",
+    items: [
+      {img:"img/larou.jpg", name:"Tujia Cured Pork", price:68, unit:"/500g",
+       desc:"Slow-smoked over wood fire. Slice thin and stir-fry with garlic sprouts.", tags:["Tasting","Check-in OK"]},
+      {img:"img/meicha.jpg", name:"Vine Tea (Mei Cha)", price:45, unit:"/box",
+       desc:"Wild-picked on the mountain. Pale golden brew with a sweet finish.", tags:["Tasting","Gift"]},
+      {img:"img/gefen.jpg", name:"Kudzu Root Powder", price:30, unit:"/bag",
+       desc:"Just add hot water. Mild and smooth — good for kids and elders.", tags:["Instant drink","Easy to carry"]},
+      {img:"img/jiangtang.jpg", name:"Ginger Candy", price:20, unit:"/box",
+       desc:"Hand-pulled. Slightly spicy, then sweet. Helps with motion sickness.", tags:["Tasting","Snack"]},
+      {img:"img/zhijin.jpg", name:"Tujia Brocade", price:88, unit:"/piece",
+       desc:"Xilankapu — handwoven on a wooden loom, traditional Tujia patterns.", tags:["Handmade","Souvenir"]}
+    ]
+  },
+  ko: {
+    h1: "장자제 토산품",
+    sub: "수공예 · 당일 제조 · 시식 가능",
+    hint: "QR로 확인 · 가격 투명 · 물어보지 않아도 됩니다",
+    priceUnit: "위안",
+    faqTitle: "자주 묻는 질문",
+    faq: [
+      ["시식할 수 있나요?", "네, 사장님께 말씀하시면 대부분 맛볼 수 있습니다."],
+      ["비행기에 가져갈 수 있나요?", "육포·차·가루류는 위탁 수하물로 가능합니다. 액체와 생식품은 안 됩니다."],
+      ["깎아 주시나요?", "두 개 이상 구매하시면 조정 가능합니다."],
+      ["보관은 어떻게 하나요?", "육포는 냉장, 차·가루·사탕은 서늘하고 건조한 곳에 보관하세요."],
+      ["결제는 어떻게 하나요?", "현금, 위챗페이, 알리페이 모두 가능합니다."]
+    ],
+    foot: "투자족의 맛 · 산에서 집까지",
+    items: [
+      {img:"img/larou.jpg", name:"투자족 훈제 육포", price:68, unit:"/500g",
+       desc:"장작으로 천천히 훈연했습니다. 얇게 썰어 마늘종과 볶으면 좋습니다.", tags:["시식","기내 가능"]},
+      {img:"img/meicha.jpg", name:"장자제 매차(덩굴차)", price:45, unit:"/박스",
+       desc:"산에서 야생 채취. 연한 황금색 차에 은은한 단맛이 있습니다.", tags:["시식","선물용"]},
+      {img:"img/gefen.jpg", name:"칡뿌리 가루", price:30, unit:"/봉",
+       desc:"뜨거운 물만 부으면 됩니다. 부드러워서 아이와 어르신께 좋습니다.", tags:["간편 음료","휴대 간편"]},
+      {img:"img/jiangtang.jpg", name:"생강 캔디", price:20, unit:"/박스",
+       desc:"수작업으로 만든 캔디. 약간 맵고 달콤합니다. 멀미에 도움이 됩니다.", tags:["시식","간식"]},
+      {img:"img/zhijin.jpg", name:"투자족 직금", price:88, unit:"/점",
+       desc:"시란카푸 — 전통 문양을 손베틀로 짠 직물입니다.", tags:["수공예","기념품"]}
+    ]
+  },
+  ru: {
+    h1: "Местные specialty Чжанцзяцзе",
+    sub: "Ручная работа · Свежее каждый день · Дегустация",
+    hint: "Сканируйте · Прозрачные цены · Спрашивать не нужно",
+    priceUnit: "юаней",
+    faqTitle: "Вопросы",
+    faq: [
+      ["Можно попробовать?", "Да, скажите хозяину — почти всё можно попробовать."],
+      ["Можно взять в самолёт?", "Мясо, чай и порошки — в багаж. Жидкости и свежие продукты нельзя."],
+      ["Есть скидка?", "При покупке двух штук и более — договоритесь с хозяином."],
+      ["Как хранить?", "Мясо — в холодильнике; чай, порошок и конфеты — в сухом месте."],
+      ["Как оплатить?", "Наличные, WeChat Pay или Alipay."]
+    ],
+    foot: "Вкус гор · с гор — к вашему столу",
+    items: [
+      {img:"img/larou.jpg", name:"Копчёное мясо туцзя", price:68, unit:"/500 г",
+       desc:"Медленное копчение на дровах. Нарежьте тонко и обжарьте с чесноком.", tags:["Дегустация","В багаж"]},
+      {img:"img/meicha.jpg", name:"Чай из лианы (Мэй Ча)", price:45, unit:"/коробка",
+       desc:"Дикий горный чай. Светло-золотой настой со сладким послевкусием.", tags:["Дегустация","Подарок"]},
+      {img:"img/gefen.jpg", name:"Порошок кудзу", price:30, unit:"/пакет",
+       desc:"Просто добавьте кипяток. Мягкий вкус, подходит детям и пожилым.", tags:["Быстрый напиток","Удобно"]},
+      {img:"img/jiangtang.jpg", name:"Имбирные конфеты", price:20, unit:"/коробка",
+       desc:"Ручная вытяжка. Слегка остро, затем сладко. Помогает от укачивания.", tags:["Дегустация","Снек"]},
+      {img:"img/zhijin.jpg", name:"Парча туцзя", price:88, unit:"/шт",
+       desc:"Силанькапу — ручное ткачество на деревянном станке, традиционный узор.", tags:["Ручная работа","Сувенир"]}
+    ]
+  }
+};
+
+let lang = "zh";
+const $ = s => document.querySelector(s);
+
+function render(){
+  const d = DATA[lang];
+  document.documentElement.lang = lang;
+  $("#h1").textContent = d.h1;
+  $("#sub").textContent = d.sub;
+  $("#hint").textContent = d.hint;
+  document.title = d.h1;
+
+  $("#list").innerHTML = d.items.map(it => `
+    <article class="card">
+      <img src="${it.img}" alt="${it.name}" loading="lazy">
+      <div class="body">
+        <div class="row">
+          <div class="name">${it.name}</div>
+          <div class="price">¥${it.price}<small>${it.unit}</small></div>
+        </div>
+        <p class="desc">${it.desc}</p>
+        <div class="tags">${it.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
+      </div>
+    </article>`).join("");
+
+  $("#faq").innerHTML = `<h2>${d.faqTitle}</h2>` + d.faq.map(([q,a]) => `
+    <div class="qa"><div class="q">${q}</div><div class="a">${a}</div></div>`).join("");
+
+  $("#foot").textContent = d.foot;
+  document.querySelectorAll(".langs button").forEach(b =>
+    b.classList.toggle("on", b.dataset.lang === lang));
+}
+
+document.querySelectorAll(".langs button").forEach(b => {
+  b.onclick = () => { lang = b.dataset.lang; render(); };
+});
+
+render();
+</script>
+</body>
+</html>
